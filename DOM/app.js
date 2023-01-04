@@ -99,6 +99,8 @@
 // @returns HTML Collection --> can be converted to Arrays
 
 // ?  document.getElementsByClassName()
+// @return ---> HTML Collection
+
 // here we are using getElementsByClassName on a global scope, it will select all the elements with class name of collection item present in our html document.
 
 // const items = document.getElementsByClassName("collection-item");
@@ -117,7 +119,7 @@
 // console.log(listItems);
 
 // ? document.getElementsByTagName()
-// @return HTML Collection
+// @return ---> HTML Collection
 
 // let lis = document.getElementsByTagName("li");
 
@@ -162,7 +164,15 @@
 
 // console.log(items);
 
-// < ---------------------------------------------------------------------------------- >
+/**
+ * ! Difference b/w HTML Collection and Node List
+ *
+ * ? HTML Collection---> Will only contain element nodes, cannot use forEach loop
+ * ? Node List ---> Will contain every type of node, can use forEach loop
+ *
+ */
+
+/* ================================================================================= */
 
 // ! DOM Traversal
 
@@ -265,3 +275,75 @@
 // console.log(val);
 
 // ! DOM - Removing Elements
+
+// * Replace Elements
+
+// Create element
+// const newHeading = document.createElement("h2");
+
+// Add id
+// newHeading.id = "task-title";
+
+// Create new text node and append
+// newHeading.appendChild(document.createTextNode("New Task Lists"));
+
+// Get the old Heading
+// const oldHeading = document.getElementById("task-title");
+
+// Get the parent- bc we will use replaceChild and we will call it on parent
+// const cardAction = document.querySelector(".card-action");
+
+// Replace
+// cardAction.replaceChild(newHeading, oldHeading);
+
+// console.log(newHeading);
+
+// * Remove Element
+
+// grab the element
+// const lis = document.querySelectorAll("li");
+
+// Remove - using remove() method
+// lis[1].remove();
+
+// we can also remove by child
+
+// Grab the parent element
+// const list = document.querySelector("ul");
+
+// Remove - using removeChild() method
+// list.removeChild(lis[3]);
+
+// ! Class
+// const firstLi = document.querySelector("li:first-child");
+// const link = firstLi.children[0];
+
+let val;
+// val = link.className; // gives string of the classes
+// val = link.classList; // gives the DOM Token List
+// console.log(link.classList);
+// val = link;
+
+// * Add class to class List
+// val = link.classList.add("test");
+
+// * Remove class from class List
+// val = link.classList.remove("test");
+
+// val = link;
+
+// ! Attributes
+
+// * Get Attribute
+// val = link.getAttribute("href");
+
+// * Set Attribute
+// val = link.setAttribute("title", "test-link");
+
+// * Check if has Attribute or not
+// val = link.hasAttribute("title"); // true
+
+// * Remove Attribute
+// val = link.removeAttribute("title");
+
+// console.log(val);
