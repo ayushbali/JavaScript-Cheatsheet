@@ -96,7 +96,7 @@
 // document.querySelector("li:nth-child(even)").style.backgroundColor = "#f4f4f4";
 
 // ! For Selecting Multiple Elements
-// @returns HTML Collection --> can be converted to Arrays
+// @returns either HTML Collection or Node List, both --> (can be converted to Arrays)
 
 // ?  document.getElementsByClassName()
 // @return ---> HTML Collection
