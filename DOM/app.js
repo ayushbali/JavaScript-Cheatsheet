@@ -32,14 +32,14 @@
 // ! Convert HTML Collection in an Array
 // * use Array.from(pass_htmlCollection_inside) to convert in array
 
-// let scripts = document.scripts;
+// let scripts = document.scripts;  // @return ---> HTML Collection
 // let scriptsArr = Array.from(scripts);
 
 // scriptsArr.forEach(function (script) {
 //   console.log(script.getAttribute("src"));
 // });
 
-// val = console.log(scriptsArray);
+// val = console.log(scriptsArr);
 
 // < ========================================================================================== >
 
@@ -318,7 +318,7 @@
 // const firstLi = document.querySelector("li:first-child");
 // const link = firstLi.children[0];
 
-let val;
+// let val;
 // val = link.className; // gives string of the classes
 // val = link.classList; // gives the DOM Token List
 // console.log(link.classList);
