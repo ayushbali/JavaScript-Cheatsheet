@@ -347,3 +347,103 @@
 // val = link.removeAttribute("title");
 
 // console.log(val);
+
+/***************************************************************************************************************/
+
+// ! EVENT LISTENER And EVENT Object.
+
+// * Get the element and addEventListener to it
+// document.querySelector(".clear-tasks").addEventListener("click", function (e) {
+//   // prevent the defualt behaviour for some elements
+//   e.preventDefault();
+//   console.log("Clicked");
+// });
+
+// * A neat way of writing this is
+// const clearTask = document.querySelector(".clear-tasks");
+
+// clearTask.addEventListener("click", onClick);
+
+// function onClick(e) {
+// e.preventDefault();
+// console.log("click");
+
+// let val;
+// val = e;
+
+// * Event Target Element
+// ! target is the element event happens on.
+// val = e.target; // ! important
+// val = e.target.id;
+// val = e.target.className;
+// val = e.target.classList;
+// e.target.innerText = 'Hello'
+
+// * Event Type
+// val = e.type;
+
+// * Time stamp
+// val = e.timeStamp;
+
+// * Get Coordinates relative to the window
+// val = e.clientX; // on X axis
+// val = e.clientY; // on Y axis
+
+// * Get coordinates relative to the element
+// val = e.offsetX; // on X axis
+// val = e.offsetY; // on Y axis
+
+// console.log(val);
+// }
+
+// ! Mouse Events - and types of events
+
+// const clearTask = document.querySelector(".clear-tasks");
+// const card = document.querySelector(".card");
+// const heading = document.querySelector("h5");
+
+// * Click
+// clearTask.addEventListener("click", runEvent);
+
+// * Double Click
+// clearTask.addEventListener("dblclick", runEvent);
+
+// * Mouse down
+// clearTask.addEventListener("mousedown", runEvent);
+
+// * Mouse up
+// clearTask.addEventListener("mouseup", runEvent);
+
+// * Mouseenter
+// card.addEventListener("mouseenter", runEvent);
+
+// * Mouseleave
+// card.addEventListener("mouseleave", runEvent);
+
+// * Mouseover
+// card.addEventListener("mouseover", runEvent);
+
+// * Mouseout
+// card.addEventListener("mouseout", runEvent);
+
+// * Mouseover
+// card.addEventListener("mousemove", runEvent);
+
+// ! function to generrate random hex colors
+// function getRandomColor() {
+//   const letters = "0123456789ABCDEF";
+//   let color = "#";
+
+//   for (let i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// }
+
+// Event Handler
+// function runEvent(e) {
+//   heading.textContent = `MouseX: ${e.clientX} MouseY: ${e.clientY}`;
+
+// console.log(`Event Type: ${e.type}`);
+// console.log(getRandomColor());
+// }
