@@ -405,13 +405,13 @@
 // * Click
 // clearTask.addEventListener("click", runEvent);
 
-// * Double Click
+// * DoubleClick
 // clearTask.addEventListener("dblclick", runEvent);
 
-// * Mouse down
+// * Mousedown
 // clearTask.addEventListener("mousedown", runEvent);
 
-// * Mouse up
+// * Mouseup
 // clearTask.addEventListener("mouseup", runEvent);
 
 // * Mouseenter
@@ -447,3 +447,109 @@
 // console.log(`Event Type: ${e.type}`);
 // console.log(getRandomColor());
 // }
+
+// ! Keyboard and Input Events
+// const form = document.querySelector("form");
+// const taskInput = document.getElementById("task");
+// const select = document.querySelector("select");
+
+// * Clear Input
+// taskInput.value = "";
+// form.addEventListener("submit", runEvent);
+
+// * Keydown
+// taskInput.addEventListener("keydown", runEvent);
+
+// * Keyup
+// taskInput.addEventListener("keyup", runEvent);
+
+// * Focus
+// taskInput.addEventListener("focus", runEvent);
+
+// * Blur
+// taskInput.addEventListener("blur", runEvent);
+
+// * Cut, Copy & Paste
+// taskInput.addEventListener("cut", runEvent);
+// taskInput.addEventListener("copy", runEvent);
+// taskInput.addEventListener("paste", runEvent);
+
+// * Change
+// select.addEventListener("change", runEvent);
+
+// * Input
+// taskInput.addEventListener("input", runEvent);
+
+// Event handler
+// function runEvent(e) {
+// console.log(`Event Type: ${e.type}, value: ${e.target.value}`);
+// e.preventDefault();
+
+// * Catch input value
+// console.log(e.target.value);
+
+// * Gives Value
+// console.log(taskInput.value);
+// }
+
+// ! Event Bubbling - bottom to top
+// we are grabbing and putting a click event on card-title
+// document.querySelector(".card-title").addEventListener("click", function (e) {
+//   console.log("card title");
+// });
+
+// putting the event listener on it's parent which is card-content
+// document.querySelector(".card-content").addEventListener("click", function (e) {
+//   console.log("card content");
+// });
+
+// putting the event listener on it's parent which is card
+// document.querySelector(".card").addEventListener("click", function (e) {
+//   console.log("card");
+// });
+
+// putting the event listener on it's parent which is col
+// document.querySelector(".col").addEventListener("click", function (e) {
+//   console.log("col");
+// });
+
+// ! Event Delegation - top to bottom
+// @defination put an event listener on a parent of what you are looking for and then use conditons to find the target using e.target, then do your functionality there.
+
+// * Without Event Delegation
+// here only the first one will work
+// since we are using queryselector
+// even if we use querySelectorAll we would have to add events for every element
+// and if we will add elements dynamically it will not work on them
+// because if we dynamically add element which was not there when the page loaded the event will not work on that element
+
+/* 
+  const delItem = document.querySelector(".delete-item");
+  delItem.addEventListener("click", deleteItem);
+  function deleteItem(e) {
+    console.log("delete item");
+  } 
+*/
+
+// * With Event Deletaion
+
+// instead of putting an event directly on an el.
+// we can choose a parent, we can put it on body also, because even if we add any el. dynamically it will be inside of the body only
+
+// parent
+document.body.addEventListener("click", deleteItem);
+
+// event handler
+function deleteItem(e) {
+  // * find target on which we want event to occur (jispe event humko chahiye)
+  // console.log(e.target);
+  // if (e.target.parentElement.className === 'delete-item secondary-content') {
+  //   console.log("delete item");
+  // }
+  if (e.target.parentElement.classList.contains("delete-item")) {
+    console.log("delete item");
+    // we want to remove the li which is the parent of <a> tag
+    // i(target) -> a(parent) -> li(parent)
+    e.target.parentElement.parentElement.remove();
+  }
+}
