@@ -123,6 +123,8 @@
 //   return 5;
 // });
 
+// ! Array Methods
+
 // let val;
 // val = numbers.length;
 // val = numbers.push(17); // add on to the end
@@ -392,6 +394,7 @@ const c = 3;
 }
 
 function scope() {
+  // * Function scope
   // these variables are diferent than in Global, block scope
   // var is a fn scope, thus var a inside fn will not affect var a inside global scope
   var a = 4;
