@@ -28,9 +28,46 @@
 
 document.querySelector("form").addEventListener("submit", runEvent);
 
+// as we add new task, the old task will get replaced
+// function runEvent(e) {
+//   const task = document.getElementById("task").value;
+//   localStorage.setItem("task", task);
+//   console.log("task saved");
+//   e.preventDefault();
+// }
+
+// therefore we need to create an Array of task and store them as strings
 function runEvent(e) {
   const task = document.getElementById("task").value;
-  localStorage.setItem("task", task);
+
+  let tasks;
+
+  // check to see if there is task in localstorage
+  // if not, then set task to an empty array and add to it @ref line 48
+  // if there is pull it out @ref line 51 and add to it @ref line 53
+  if (localStorage.getItem("tasks") === null) {
+    tasks = [];
+  } else {
+    // this will be a string,
+    // we need to parse it into obj. using JSON.parse()
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+  }
+  // push the task coming via form into this tasks array
+  tasks.push(task);
+
+  // we need to re-set the localStorage item with the above added value @ref at line 56
+  // since it stores strings we need to wrap it inside JSON.stringify()
+
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
   console.log("task saved");
   e.preventDefault();
 }
+
+// forEach will not work as this is not an array, bc we pulled it out of localStorage which stores string
+// we need to parse this using JSON.parse()
+const tasks = JSON.parse(localStorage.getItem("tasks"));
+
+tasks.forEach((task) => {
+  console.log(task);
+});
