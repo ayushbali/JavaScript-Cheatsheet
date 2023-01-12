@@ -1,7 +1,9 @@
 // ! Local Storage
-// @defination local storage will stay until we manuallu clear it out through our program
+// @defination local storage will stay until we manually clear it out through our program
+
 // * set local storage item
 // @syntax localStorage.setItem('key', 'value');
+
 // localStorage.setItem("name", "john");
 // localStorage.setItem("age", "29");
 
@@ -12,23 +14,25 @@
 // sessionStorage.setItem("name", "beth");
 
 // ! @DIFF major difference between local and session storage is that, as soon as we reload/close the browser the session storage will go away but the local storage will persist(until we manually clear it out)
-// rest all of the methods are same for both
+// ? rest all of the methods are same for both
 
 // * Remove item from storage
 // localStorage.removeItem("name");
 
-// * Get from storage
+// * Get item from storage
+// It accepts only one parameter which is the key and returns the value as a string.
+
 // const name = localStorage.getItem("name");
 // const age = localStorage.getItem("age");
 
-// * clear localStorage
-
+// * Clear localStorage
 // localStorage.clear();
 // console.log(name, age);
 
+// ! Taking value from an input and storing it into localStorage
 document.querySelector("form").addEventListener("submit", runEvent);
 
-// as we add new task, the old task will get replaced
+// ? as we add new task, the old task will get replaced
 // function runEvent(e) {
 //   const task = document.getElementById("task").value;
 //   localStorage.setItem("task", task);
@@ -40,25 +44,25 @@ document.querySelector("form").addEventListener("submit", runEvent);
 function runEvent(e) {
   const task = document.getElementById("task").value;
 
+  // this is our tasks array
   let tasks;
 
-  // check to see if there is task in localstorage
-  // if not, then set task to an empty array and add to it @ref line 48
-  // if there is pull it out @ref line 51 and add to it @ref line 53
-  if (localStorage.getItem("tasks") === null) {
+  // check to see if there is any task in localstorage
+  // if not, then set tasks to an empty array
+  if (localStorage.getItem("tsArr") === null) {
     tasks = [];
   } else {
-    // this will be a string,
-    // we need to parse it into obj. using JSON.parse()
-    tasks = JSON.parse(localStorage.getItem("tasks"));
+    // if there is, then pull it out and add to it
+    // this will be a string, we need to parse it into obj. usually we store array of json obj
+    tasks = JSON.parse(localStorage.getItem("tsArr"));
   }
   // push the task coming via form into this tasks array
   tasks.push(task);
 
-  // we need to re-set the localStorage item with the above added value @ref at line 56
+  // we need to re-set the localStorage with the above added value
   // since it stores strings we need to wrap it inside JSON.stringify()
 
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem("tsArr", JSON.stringify(tasks));
 
   console.log("task saved");
   e.preventDefault();
@@ -66,8 +70,8 @@ function runEvent(e) {
 
 // forEach will not work as this is not an array, bc we pulled it out of localStorage which stores string
 // we need to parse this using JSON.parse()
-const tasks = JSON.parse(localStorage.getItem("tasks"));
+// const tasks = JSON.parse(localStorage.getItem("tasks"));
 
-tasks.forEach((task) => {
-  console.log(task);
-});
+// tasks.forEach((task) => {
+//   console.log(task);
+// });
