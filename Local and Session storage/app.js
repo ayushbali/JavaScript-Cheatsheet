@@ -75,3 +75,13 @@ function runEvent(e) {
 // tasks.forEach((task) => {
 //   console.log(task);
 // });
+
+// line 44 to 69 simple explaination
+{
+  let x;
+  if (true) {
+    x = [2];
+  }
+  x.push(3);
+  console.log(x);
+}
